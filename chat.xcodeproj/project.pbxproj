@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EA276E1F2444690000418132 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA276E1E2444690000418132 /* AppDelegate.swift */; };
-		EA276E212444690000418132 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA276E202444690000418132 /* SceneDelegate.swift */; };
 		EA276E232444690000418132 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA276E222444690000418132 /* ViewController.swift */; };
 		EA276E262444690000418132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA276E242444690000418132 /* Main.storyboard */; };
 		EA276E292444690000418132 /* chat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA276E272444690000418132 /* chat.xcdatamodeld */; };
@@ -19,7 +18,6 @@
 /* Begin PBXFileReference section */
 		EA276E1B2444690000418132 /* chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA276E1E2444690000418132 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EA276E202444690000418132 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EA276E222444690000418132 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EA276E252444690000418132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA276E282444690000418132 /* chat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = chat.xcdatamodel; sourceTree = "<group>"; };
@@ -59,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				EA276E1E2444690000418132 /* AppDelegate.swift */,
-				EA276E202444690000418132 /* SceneDelegate.swift */,
 				EA276E222444690000418132 /* ViewController.swift */,
 				EA276E242444690000418132 /* Main.storyboard */,
 				EA276E2A2444690700418132 /* Assets.xcassets */,
@@ -144,7 +141,6 @@
 				EA276E232444690000418132 /* ViewController.swift in Sources */,
 				EA276E292444690000418132 /* chat.xcdatamodeld in Sources */,
 				EA276E1F2444690000418132 /* AppDelegate.swift in Sources */,
-				EA276E212444690000418132 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +287,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6VA2MCZ893;
 				INFOPLIST_FILE = chat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +306,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6VA2MCZ893;
 				INFOPLIST_FILE = chat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
