@@ -37,16 +37,9 @@ class ChatsPresenter: ChatsPresenterProtocol {
     }
     
     private func appendChatStub() {
-        let date = Date()
-        let hours = Calendar.current.component(.hour, from: date)
-        let minutes = Calendar.current.component(.minute, from: date)
-        let seconds = Calendar.current.component(.second, from: date)
+        let message = String(repeating: "Bla ", count: 10)
+        let chat = Message(message: message)
         
-        let lastMessage = String(repeating: "Bla ", count: seconds)
-        let lastMessageTime = "\(hours):\(minutes)"
-        let chat = ChatsViewController.ChatsDataItemStub(lastMessage: lastMessage,
-                                                         lastMessageTime: lastMessageTime)
-        
-        viewController.chatsData.append(chat)
+        viewController.chatsData.insert(chat, at: 0)
     }
 }

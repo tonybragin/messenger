@@ -10,12 +10,7 @@ import UIKit
 
 protocol ChatsViewControllerProtocol: UIViewController {
     var presenter: ChatsPresenterProtocol! { get set }
-    var chatsData: [ChatsDataItem] { get set }
-}
-
-protocol ChatsDataItem {
-    var lastMessage: String { get }
-    var lastMessageTime: String { get }
+    var chatsData: [ChatDataItem] { get set }
 }
 
 class ChatsViewController: UIViewController, ChatsViewControllerProtocol {
@@ -23,7 +18,7 @@ class ChatsViewController: UIViewController, ChatsViewControllerProtocol {
     @IBOutlet weak var tableView: UITableView!
     
     var presenter: ChatsPresenterProtocol!
-    var chatsData: [ChatsDataItem] = [] {
+    var chatsData: [ChatDataItem] = [] {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
@@ -98,9 +93,14 @@ extension ChatsViewController: UITableViewDelegate {
     }
 }
 
-extension ChatsViewController {
-    struct ChatsDataItemStub: ChatsDataItem {
-        var lastMessage: String
-        var lastMessageTime: String
-    }
-}
+//extension ChatsViewController {
+//    struct ChatsDataItemStub: ChatDataItem {
+//        var isOutcoming: Bool
+//
+//        var messageTime: Date
+//
+//        var displayedMessageTime: String
+//
+//        var message: String
+//    }
+//}

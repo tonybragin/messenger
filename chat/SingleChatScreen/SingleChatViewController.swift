@@ -9,18 +9,36 @@
 import UIKit
 
 protocol SingleChatViewControllerProtocol: UIViewController, KeyboardAppearingDelegate {
-
+    var presenter: SingleChatPresenterProtocol! { get set }
+    var chatData: [ChatDataItem] { get set }
 }
 
 class SingleChatViewController: UIViewController, SingleChatViewControllerProtocol {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var messageViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var mesageTextView: MessageTextView!
     
-    private var presenter: SingleChatPresenterProtocol!
+    var presenter: SingleChatPresenterProtocol!
+    var chatData: [ChatDataItem] = [] {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
+                if let self = self,
+                    !self.chatData.isEmpty {
+                    let indexPath = IndexPath(row: self.chatData.count - 1, section: 0)
+                    self.collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
         presenter = SingleChatPresenter(viewController: self)
     }
     
@@ -34,6 +52,46 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
         presenter.removeKeyboardObservers()
     }
 
+    @IBAction func sendMessageButtonTouched(_ sender: UIButton) {
+        presenter.sendMessageButtonTouched(text: mesageTextView.text)
+    }
+}
+
+extension SingleChatViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: collectionView.frame.width, height: 60.0)
+    }
+}
+
+extension SingleChatViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        return chatData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell: MessageCollectionViewCell!
+        if chatData[indexPath.row].isOutcoming {
+            cell = (collectionView.dequeueReusableCell(withReuseIdentifier: "OutcomingCollectionViewCell",
+                                                       for: indexPath) as! MessageCollectionViewCell)
+        } else {
+            cell = (collectionView.dequeueReusableCell(withReuseIdentifier: "IncomingCollectionViewCell",
+                                                       for: indexPath) as! MessageCollectionViewCell)
+        }
+        cell.configure(with: chatData[indexPath.row])
+        return cell
+    }
+    
+    
+}
+
+extension SingleChatViewController: UICollectionViewDelegate {
+    
 }
 
 extension SingleChatViewController: KeyboardAppearingDelegate {

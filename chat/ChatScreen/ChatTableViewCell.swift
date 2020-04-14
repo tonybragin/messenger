@@ -22,9 +22,9 @@ class ChatTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(with item: ChatsDataItem) {
-        lastMessageLabel.text = item.lastMessage
-        timeLabel.text = item.lastMessageTime
+    func configure(with item: ChatDataItem) {
+        lastMessageLabel.text = item.message
+        timeLabel.text = item.displayedMessageTime
     }
 
 }
