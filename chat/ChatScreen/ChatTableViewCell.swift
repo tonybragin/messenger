@@ -13,15 +13,18 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet weak var lastMessageLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    override func layoutSubviews() {
+        DispatchQueue.main.async { [weak self] in
+            self?.layer.cornerRadius = 18
+            self?.layer.masksToBounds = true
+            self?.layer.borderColor = UIColor.white.cgColor
+            self?.layer.borderWidth = 10
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func configure(with item: ChatsDataItem) {
+        lastMessageLabel.text = item.lastMessage
+        timeLabel.text = item.lastMessageTime
     }
 
 }

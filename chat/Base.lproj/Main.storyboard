@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ps8-9V-Fx7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StartScreen" translatesAutoresizingMaskIntoConstraints="NO" id="dPU-NL-xw7">
-                                <rect key="frame" x="41.5" y="229" width="331" height="176.5"/>
+                                <rect key="frame" x="41.5" y="244" width="331" height="177"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dPU-NL-xw7" secondAttribute="height" multiplier="15:8" id="9KI-24-c5W"/>
@@ -34,6 +34,9 @@
                                 <state key="normal" title="Войти">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ZjN-Yo-sZo" kind="show" id="VDT-7d-nin"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -47,6 +50,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="dZA-11-1xy"/>
                     <connections>
                         <outlet property="entryButton" destination="D9y-f3-fg3" id="CqC-xj-KqB"/>
                     </connections>
@@ -55,7 +59,23 @@
             </objects>
             <point key="canvasLocation" x="139" y="126"/>
         </scene>
-        <!--Chats View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="xCO-Mx-fdj">
+            <objects>
+                <navigationController id="Ps8-9V-Fx7" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uMa-ig-nFQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ns1-6E-jvL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zDJ-z9-tID" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-655" y="126"/>
+        </scene>
+        <!--Чаты-->
         <scene sceneID="pW2-WD-wrC">
             <objects>
                 <viewController storyboardIdentifier="ChatsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZjN-Yo-sZo" customClass="ChatsViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,19 +83,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZaY-5D-lCw">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZaY-5D-lCw">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="70" id="ki5-9e-X7U" customClass="ChatTableViewCell" customModule="chat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="80" id="ki5-9e-X7U" customClass="ChatTableViewCell" customModule="chat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ki5-9e-X7U" id="bHW-iB-cBF">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6f-SS-WCJ">
-                                                    <rect key="frame" x="20" y="11" width="374" height="24"/>
+                                                    <rect key="frame" x="28" y="19" width="358" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="Wjr-3i-D0v"/>
                                                     </constraints>
@@ -84,19 +104,18 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3h-yR-Orf">
-                                                    <rect key="frame" x="359.5" y="43" width="34.5" height="16"/>
+                                                    <rect key="frame" x="351.5" y="45" width="34.5" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="b6f-SS-WCJ" secondAttribute="trailing" id="7mW-Me-Wda"/>
-                                                <constraint firstItem="o3h-yR-Orf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bHW-iB-cBF" secondAttribute="leading" constant="20" symbolic="YES" id="eTV-mP-F9H"/>
-                                                <constraint firstItem="o3h-yR-Orf" firstAttribute="trailing" secondItem="bHW-iB-cBF" secondAttribute="trailingMargin" id="jX5-r0-R5y"/>
-                                                <constraint firstItem="b6f-SS-WCJ" firstAttribute="top" secondItem="bHW-iB-cBF" secondAttribute="topMargin" id="ker-l8-aRj"/>
-                                                <constraint firstItem="o3h-yR-Orf" firstAttribute="bottom" secondItem="bHW-iB-cBF" secondAttribute="bottomMargin" id="lbB-ib-I2h"/>
-                                                <constraint firstItem="b6f-SS-WCJ" firstAttribute="leading" secondItem="bHW-iB-cBF" secondAttribute="leadingMargin" id="mIX-Eu-w2U"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="b6f-SS-WCJ" secondAttribute="trailing" constant="8" id="7mW-Me-Wda"/>
+                                                <constraint firstItem="o3h-yR-Orf" firstAttribute="trailing" secondItem="bHW-iB-cBF" secondAttribute="trailingMargin" constant="-8" id="jX5-r0-R5y"/>
+                                                <constraint firstItem="b6f-SS-WCJ" firstAttribute="top" secondItem="bHW-iB-cBF" secondAttribute="topMargin" constant="8" id="ker-l8-aRj"/>
+                                                <constraint firstItem="o3h-yR-Orf" firstAttribute="bottom" secondItem="bHW-iB-cBF" secondAttribute="bottomMargin" constant="-8" id="lbB-ib-I2h"/>
+                                                <constraint firstItem="b6f-SS-WCJ" firstAttribute="leading" secondItem="bHW-iB-cBF" secondAttribute="leadingMargin" constant="8" id="mIX-Eu-w2U"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -117,8 +136,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L40-yc-ejA"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Чаты" id="1wT-N7-H8A" userLabel="Чаты">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="iconAdd" id="7QV-d7-xK6">
+                            <connections>
+                                <action selector="addButtonTouched:" destination="ZjN-Yo-sZo" id="PnO-Mm-AjY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ZaY-5D-lCw" id="PAQ-OU-9to"/>
+                        <segue destination="vCh-Lt-MIj" kind="show" id="tuK-Vd-yvr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="He7-do-BNy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -164,7 +191,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e0B-gQ-pVQ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="758"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="714"/>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lHq-uB-jt8">
                                     <size key="itemSize" width="412" height="91"/>
@@ -250,6 +277,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c1a-vX-UiP"/>
                     </view>
+                    <navigationItem key="navigationItem" id="upi-fg-oun"/>
                     <connections>
                         <outlet property="collectionView" destination="e0B-gQ-pVQ" id="HF6-yk-rOn"/>
                     </connections>
@@ -261,6 +289,7 @@
     </scenes>
     <resources>
         <image name="StartScreen" width="313" height="141"/>
+        <image name="iconAdd" width="24" height="24"/>
         <image name="iconSend" width="22" height="20"/>
     </resources>
 </document>
