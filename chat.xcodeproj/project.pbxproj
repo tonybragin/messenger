@@ -23,6 +23,9 @@
 		EA276E4724448B3D00418132 /* IncomingMessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA276E4624448B3D00418132 /* IncomingMessageLabel.swift */; };
 		EA276E4924448B9300418132 /* MessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA276E4824448B9300418132 /* MessageTextView.swift */; };
 		EA276E4B2444958100418132 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA276E4A2444958100418132 /* UIColor.swift */; };
+		EA59EB342445A5E1007F7E83 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59EB332445A5E1007F7E83 /* MessageView.swift */; };
+		EA59EB362445A60F007F7E83 /* SingleChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59EB352445A60F007F7E83 /* SingleChatPresenter.swift */; };
+		EA59EB382445AAB1007F7E83 /* KeyboardAppearingSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59EB372445AAB1007F7E83 /* KeyboardAppearingSupport.swift */; };
 		EAF4381A244570A8004BB231 /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAF43819244570A8004BB231 /* EmptyTableView.xib */; };
 		EAF4381C24457166004BB231 /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4381B24457166004BB231 /* EmptyTableView.swift */; };
 		EAF4381E2445752D004BB231 /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4381D2445752D004BB231 /* Charts.swift */; };
@@ -48,6 +51,9 @@
 		EA276E4624448B3D00418132 /* IncomingMessageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessageLabel.swift; sourceTree = "<group>"; };
 		EA276E4824448B9300418132 /* MessageTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTextView.swift; sourceTree = "<group>"; };
 		EA276E4A2444958100418132 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		EA59EB332445A5E1007F7E83 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		EA59EB352445A60F007F7E83 /* SingleChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleChatPresenter.swift; sourceTree = "<group>"; };
+		EA59EB372445AAB1007F7E83 /* KeyboardAppearingSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAppearingSupport.swift; sourceTree = "<group>"; };
 		EAF43819244570A8004BB231 /* EmptyTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
 		EAF4381B24457166004BB231 /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
 		EAF4381D2445752D004BB231 /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 				EA276E1E2444690000418132 /* AppDelegate.swift */,
 				EA276E4A2444958100418132 /* UIColor.swift */,
 				EAF4381D2445752D004BB231 /* Charts.swift */,
+				EA59EB372445AAB1007F7E83 /* KeyboardAppearingSupport.swift */,
 				EA276E35244487A500418132 /* StartScreen */,
 				EA276E382444884300418132 /* ChatScreen */,
 				EA276E3D2444895200418132 /* SingleChatScreen */,
@@ -123,10 +130,12 @@
 			isa = PBXGroup;
 			children = (
 				EA276E3E2444897900418132 /* SingleChatViewController.swift */,
+				EA59EB352445A60F007F7E83 /* SingleChatPresenter.swift */,
 				EA276E4024448AB000418132 /* OutcomingCollectionViewCell.swift */,
 				EA276E4224448ABF00418132 /* IncomingCollectionViewCell.swift */,
 				EA276E4424448B2D00418132 /* OutcomingMessageLabel.swift */,
 				EA276E4624448B3D00418132 /* IncomingMessageLabel.swift */,
+				EA59EB332445A5E1007F7E83 /* MessageView.swift */,
 				EA276E4824448B9300418132 /* MessageTextView.swift */,
 			);
 			path = SingleChatScreen;
@@ -213,11 +222,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA59EB382445AAB1007F7E83 /* KeyboardAppearingSupport.swift in Sources */,
+				EA59EB362445A60F007F7E83 /* SingleChatPresenter.swift in Sources */,
 				EA276E4324448ABF00418132 /* IncomingCollectionViewCell.swift in Sources */,
 				EA276E4924448B9300418132 /* MessageTextView.swift in Sources */,
 				EA276E4124448AB000418132 /* OutcomingCollectionViewCell.swift in Sources */,
 				EAF4381E2445752D004BB231 /* Charts.swift in Sources */,
 				EA276E4524448B2D00418132 /* OutcomingMessageLabel.swift in Sources */,
+				EA59EB342445A5E1007F7E83 /* MessageView.swift in Sources */,
 				EA276E232444690000418132 /* StartViewController.swift in Sources */,
 				EA276E4724448B3D00418132 /* IncomingMessageLabel.swift in Sources */,
 				EA276E292444690000418132 /* chat.xcdatamodeld in Sources */,

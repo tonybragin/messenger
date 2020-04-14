@@ -87,7 +87,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="80" id="ki5-9e-X7U" customClass="ChatTableViewCell" customModule="chat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="80" id="ki5-9e-X7U" customClass="ChatTableViewCell" customModule="chat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ki5-9e-X7U" id="bHW-iB-cBF">
@@ -145,7 +145,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ZaY-5D-lCw" id="PAQ-OU-9to"/>
-                        <segue destination="vCh-Lt-MIj" kind="show" id="tuK-Vd-yvr"/>
+                        <segue destination="vCh-Lt-MIj" kind="show" identifier="ChatsToSingleChat" id="tuK-Vd-yvr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="He7-do-BNy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -160,11 +160,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2C-8j-1Tz">
-                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2C-8j-1Tz" customClass="MessageView" customModule="chat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="807" width="414" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqt-LE-Cyp">
-                                        <rect key="frame" x="358" y="10" width="40" height="40"/>
+                                        <rect key="frame" x="358" y="7" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="2Mx-rY-cQA"/>
                                             <constraint firstAttribute="height" constant="40" id="zir-4t-6Co"/>
@@ -172,7 +172,7 @@
                                         <state key="normal" image="iconSend"/>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text" translatesAutoresizingMaskIntoConstraints="NO" id="JyZ-mV-DIW" customClass="MessageTextView" customModule="chat" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="8" width="326" height="44"/>
+                                        <rect key="frame" x="16" y="8" width="326" height="39"/>
                                         <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -181,17 +181,17 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="9qZ-4h-69i"/>
+                                    <constraint firstAttribute="height" constant="55" id="9qZ-4h-69i"/>
                                     <constraint firstItem="JyZ-mV-DIW" firstAttribute="top" secondItem="z2C-8j-1Tz" secondAttribute="top" constant="8" id="MvB-v1-UEy"/>
                                     <constraint firstAttribute="trailing" secondItem="kqt-LE-Cyp" secondAttribute="trailing" constant="16" id="Yn4-qZ-SfN"/>
                                     <constraint firstAttribute="bottom" secondItem="JyZ-mV-DIW" secondAttribute="bottom" constant="8" id="ctQ-MP-r5G"/>
                                     <constraint firstItem="JyZ-mV-DIW" firstAttribute="leading" secondItem="z2C-8j-1Tz" secondAttribute="leading" constant="16" id="d3N-gW-pyT"/>
                                     <constraint firstItem="kqt-LE-Cyp" firstAttribute="leading" secondItem="JyZ-mV-DIW" secondAttribute="trailing" constant="16" id="g0Z-GU-FPa"/>
-                                    <constraint firstAttribute="bottom" secondItem="kqt-LE-Cyp" secondAttribute="bottom" constant="10" id="sQw-bG-iHa"/>
+                                    <constraint firstAttribute="bottom" secondItem="kqt-LE-Cyp" secondAttribute="bottom" constant="8" id="sQw-bG-iHa"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e0B-gQ-pVQ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="714"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="719"/>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lHq-uB-jt8">
                                     <size key="itemSize" width="412" height="91"/>
@@ -280,6 +280,7 @@
                     <navigationItem key="navigationItem" id="upi-fg-oun"/>
                     <connections>
                         <outlet property="collectionView" destination="e0B-gQ-pVQ" id="HF6-yk-rOn"/>
+                        <outlet property="messageViewBottomConstraint" destination="L45-Br-6cF" id="g2a-NZ-EoG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPp-JS-Jbi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

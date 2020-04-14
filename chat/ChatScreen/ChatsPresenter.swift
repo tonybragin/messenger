@@ -29,7 +29,7 @@ class ChatsPresenter: ChatsPresenterProtocol {
     }
     
     func didSelectChat(at index: Int) {
-        
+        viewController.performSegue(withIdentifier: "ChatsToSingleChat", sender: nil)
     }
     
     func deleteChat(at index: Int) {
