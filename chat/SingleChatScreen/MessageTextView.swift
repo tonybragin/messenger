@@ -15,4 +15,16 @@ class MessageTextView: UITextView {
         layer.cornerRadius = 5
         layer.masksToBounds = true
     }
+    
+    func showPlaceholder() {
+        text = "Введите сообщение..."
+        textColor = UIColor.messageTextViewPlaceholderTextColor
+        font = UIFont.messageTextViewPlaceholderTextFont
+    }
+    
+    func hidePlaceholder() {
+        text = ""
+        textColor = UIColor.black
+        font = UIFont.messageTextViewTextFont
+    }
 }

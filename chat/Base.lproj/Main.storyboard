@@ -175,7 +175,7 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text Text Text Text Text Text Text Text text text text text" translatesAutoresizingMaskIntoConstraints="NO" id="JyZ-mV-DIW" customClass="MessageTextView" customModule="chat" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="8" width="326" height="39"/>
+                                        <rect key="frame" x="16" y="10" width="326" height="35"/>
                                         <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -185,9 +185,9 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="9qZ-4h-69i"/>
-                                    <constraint firstItem="JyZ-mV-DIW" firstAttribute="top" secondItem="z2C-8j-1Tz" secondAttribute="top" constant="8" id="MvB-v1-UEy"/>
+                                    <constraint firstItem="JyZ-mV-DIW" firstAttribute="top" secondItem="z2C-8j-1Tz" secondAttribute="top" constant="10" id="MvB-v1-UEy"/>
                                     <constraint firstAttribute="trailing" secondItem="kqt-LE-Cyp" secondAttribute="trailing" constant="16" id="Yn4-qZ-SfN"/>
-                                    <constraint firstAttribute="bottom" secondItem="JyZ-mV-DIW" secondAttribute="bottom" constant="8" id="ctQ-MP-r5G"/>
+                                    <constraint firstAttribute="bottom" secondItem="JyZ-mV-DIW" secondAttribute="bottom" constant="10" id="ctQ-MP-r5G"/>
                                     <constraint firstItem="JyZ-mV-DIW" firstAttribute="leading" secondItem="z2C-8j-1Tz" secondAttribute="leading" constant="16" id="d3N-gW-pyT"/>
                                     <constraint firstItem="kqt-LE-Cyp" firstAttribute="leading" secondItem="JyZ-mV-DIW" secondAttribute="trailing" constant="16" id="g0Z-GU-FPa"/>
                                     <constraint firstAttribute="bottom" secondItem="kqt-LE-Cyp" secondAttribute="bottom" constant="8" id="sQw-bG-iHa"/>
@@ -293,8 +293,9 @@
                     <navigationItem key="navigationItem" id="upi-fg-oun"/>
                     <connections>
                         <outlet property="collectionView" destination="e0B-gQ-pVQ" id="HF6-yk-rOn"/>
-                        <outlet property="mesageTextView" destination="JyZ-mV-DIW" id="d9L-z1-I5d"/>
+                        <outlet property="messageTextView" destination="JyZ-mV-DIW" id="d9L-z1-I5d"/>
                         <outlet property="messageViewBottomConstraint" destination="L45-Br-6cF" id="g2a-NZ-EoG"/>
+                        <outlet property="messageViewHeightConstraint" destination="9qZ-4h-69i" id="kRL-tL-9ci"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPp-JS-Jbi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

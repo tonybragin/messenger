@@ -17,7 +17,8 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var messageViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var mesageTextView: MessageTextView!
+    @IBOutlet weak var messageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var messageTextView: MessageTextView!
     
     var presenter: SingleChatPresenterProtocol!
     var chatData: [ChatDataItem] = [] {
@@ -33,12 +34,8 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        
+        configureCollectionView()
+        configureTextView()
         presenter = SingleChatPresenter(viewController: self)
     }
     
@@ -53,7 +50,19 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
     }
 
     @IBAction func sendMessageButtonTouched(_ sender: UIButton) {
-        presenter.sendMessageButtonTouched(text: mesageTextView.text)
+        presenter.sendMessageButtonTouched(text: messageTextView.text)
+    }
+    
+    private func configureCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+    }
+    
+    private func configureTextView() {
+        messageTextView.delegate = self
+        messageTextView.showPlaceholder()
     }
     
     private func scrollDown() {
@@ -132,4 +141,37 @@ extension SingleChatViewController: KeyboardAppearingDelegate {
     }
     
     
+}
+
+extension SingleChatViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        messageTextView.hidePlaceholder()
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if messageTextView.text.isEmpty {
+            messageTextView.showPlaceholder()
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        let lineHeight = UIFont.messageTextViewTextFont.lineHeight
+        let numLines = (textView.contentSize.height / lineHeight)
+        var newHeight: CGFloat = 55
+        switch numLines {
+        case 0..<2:
+            break
+        case 2..<3:
+            newHeight += lineHeight
+        case 3..<4:
+            newHeight += lineHeight * 2
+        default:
+            newHeight += lineHeight * 3
+        }
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.messageViewHeightConstraint.constant = newHeight
+            self?.view.layoutIfNeeded()
+        }
+    }
 }

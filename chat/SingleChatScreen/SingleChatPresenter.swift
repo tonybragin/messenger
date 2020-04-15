@@ -25,12 +25,9 @@ class SingleChatPresenter: SingleChatPresenterProtocol {
     }
     
     func sendMessageButtonTouched(text: String) {
-        func formated() -> String {
-            return text
-        }
-        let formatedText = formated()
-        if !formatedText.isEmpty {
-            appendChatStub(text: formatedText)
+        let trimmedString = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !trimmedString.isEmpty {
+            appendChatStub(text: trimmedString)
         }
     }
     

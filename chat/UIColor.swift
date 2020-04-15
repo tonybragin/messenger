@@ -17,4 +17,6 @@ extension UIColor {
                                               green: 34/255,
                                               blue: 45/255,
                                               alpha: 1)
+    static let messageTextViewPlaceholderTextColor = UIColor(white: 0,
+                                                             alpha: 0.3)
 }

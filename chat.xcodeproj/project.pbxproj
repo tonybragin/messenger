@@ -25,6 +25,7 @@
 		EA59EB342445A5E1007F7E83 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59EB332445A5E1007F7E83 /* MessageView.swift */; };
 		EA59EB362445A60F007F7E83 /* SingleChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59EB352445A60F007F7E83 /* SingleChatPresenter.swift */; };
 		EA59EB382445AAB1007F7E83 /* KeyboardAppearingSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59EB372445AAB1007F7E83 /* KeyboardAppearingSupport.swift */; };
+		EAEBF2D92446E22D00467B20 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEBF2D82446E22D00467B20 /* UIFont.swift */; };
 		EAF4381A244570A8004BB231 /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAF43819244570A8004BB231 /* EmptyTableView.xib */; };
 		EAF4381C24457166004BB231 /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4381B24457166004BB231 /* EmptyTableView.swift */; };
 		EAF4381E2445752D004BB231 /* Chats.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4381D2445752D004BB231 /* Chats.swift */; };
@@ -52,6 +53,7 @@
 		EA59EB332445A5E1007F7E83 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		EA59EB352445A60F007F7E83 /* SingleChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleChatPresenter.swift; sourceTree = "<group>"; };
 		EA59EB372445AAB1007F7E83 /* KeyboardAppearingSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAppearingSupport.swift; sourceTree = "<group>"; };
+		EAEBF2D82446E22D00467B20 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		EAF43819244570A8004BB231 /* EmptyTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
 		EAF4381B24457166004BB231 /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
 		EAF4381D2445752D004BB231 /* Chats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chats.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				EA276E1E2444690000418132 /* AppDelegate.swift */,
 				EA276E4A2444958100418132 /* UIColor.swift */,
+				EAEBF2D82446E22D00467B20 /* UIFont.swift */,
 				EA2C6CCF2445D16C00A909E2 /* Int.swift */,
 				EAF4381D2445752D004BB231 /* Chats.swift */,
 				EA59EB372445AAB1007F7E83 /* KeyboardAppearingSupport.swift */,
@@ -229,6 +232,7 @@
 				EA59EB342445A5E1007F7E83 /* MessageView.swift in Sources */,
 				EA276E232444690000418132 /* StartViewController.swift in Sources */,
 				EA276E292444690000418132 /* chat.xcdatamodeld in Sources */,
+				EAEBF2D92446E22D00467B20 /* UIFont.swift in Sources */,
 				EAF4381C24457166004BB231 /* EmptyTableView.swift in Sources */,
 				EA276E3A2444886200418132 /* ChatsViewController.swift in Sources */,
 				EA276E3C2444889400418132 /* ChatTableViewCell.swift in Sources */,
