@@ -1,5 +1,5 @@
 //
-//  OutcomingCollectionViewCell.swift
+//  MessageCollectionViewCell.swift
 //  chat
 //
 //  Created by Tony on 13/04/2020.
@@ -8,25 +8,16 @@
 
 import UIKit
 
-protocol MessageCollectionViewCell: UICollectionViewCell {
-    func configure(with item: ChatDataItem)
-}
-
-class OutcomingCollectionViewCell: UICollectionViewCell, MessageCollectionViewCell {
+class MessageCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var massageLabel: OutcomingMessageLabel!
+    @IBOutlet weak var messageLabel: MessageLabel!
     @IBOutlet weak var messageTimeLabel: UILabel!
     
-    func configure(with item: ChatDataItem) {
-        massageLabel.text = item.message
-        messageTimeLabel.text = item.displayedMessageTime
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        messageLabel.preferredMaxLayoutWidth = (layoutAttributes.size.width - contentView.layoutMargins.left - contentView.layoutMargins.left) * 0.6
+        layoutAttributes.bounds.size.height = systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        return layoutAttributes
     }
-}
-
-class IncomingCollectionViewCell: UICollectionViewCell, MessageCollectionViewCell {
-    
-    @IBOutlet weak var messageLabel: IncomingMessageLabel!
-    @IBOutlet weak var messageTimeLabel: UILabel!
     
     func configure(with item: ChatDataItem) {
         messageLabel.text = item.message

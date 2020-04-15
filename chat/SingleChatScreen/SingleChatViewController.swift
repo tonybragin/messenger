@@ -24,11 +24,9 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
-                if let self = self,
-                    !self.chatData.isEmpty {
-                    let indexPath = IndexPath(row: self.chatData.count - 1, section: 0)
-                    self.collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
-                }
+                self?.collectionView.performBatchUpdates(nil, completion: { [weak self] _ in
+                    self?.scrollDown()
+                })
             }
         }
     }
@@ -38,6 +36,8 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         
         presenter = SingleChatPresenter(viewController: self)
     }
@@ -55,14 +55,30 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
     @IBAction func sendMessageButtonTouched(_ sender: UIButton) {
         presenter.sendMessageButtonTouched(text: mesageTextView.text)
     }
+    
+    private func scrollDown() {
+        if !chatData.isEmpty {
+            let indexPath = IndexPath(row: chatData.count - 1, section: 0)
+            collectionView.scrollToItem(at: indexPath,
+                                        at: .bottom,
+                                        animated: true)
+        }
+    }
 }
 
 extension SingleChatViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: collectionView.frame.width, height: 60.0)
+        let sectionInset = (collectionViewLayout as! UICollectionViewFlowLayout).sectionInset
+        let referenceHeight: CGFloat = 60
+        let referenceWidth = collectionView.frame.width
+            - sectionInset.left
+            - sectionInset.right
+            - collectionView.contentInset.left
+            - collectionView.contentInset.right
+
+        return CGSize(width: referenceWidth, height: referenceHeight)
     }
 }
 
@@ -95,6 +111,7 @@ extension SingleChatViewController: UICollectionViewDelegate {
 }
 
 extension SingleChatViewController: KeyboardAppearingDelegate {
+    
     func keyboardWillShow(with rect: CGRect, duration: TimeInterval) {
         var bottomOffset: CGFloat = 0
         if #available(iOS 11.0, *) {
@@ -103,6 +120,7 @@ extension SingleChatViewController: KeyboardAppearingDelegate {
         UIView.animate(withDuration: duration) { [weak self] in
             self?.messageViewBottomConstraint.constant = rect.height - bottomOffset
             self?.view.layoutIfNeeded()
+            self?.scrollDown()
         }
     }
     
