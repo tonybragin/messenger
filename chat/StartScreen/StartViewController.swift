@@ -12,8 +12,11 @@ class StartViewController: UIViewController {
 
     @IBOutlet weak var entryButton: EntryButton!
     
+    private var presenter: StartPresenterProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = StartPresenter(viewController: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,5 +29,8 @@ class StartViewController: UIViewController {
         entryButton.animatedAppearance()
     }
 
+    @IBAction func entryButtonTouched(_ sender: UIButton) {
+        presenter.entryButtonTouched()
+    }
 }
 

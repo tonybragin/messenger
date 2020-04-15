@@ -9,6 +9,33 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Loader View Controller-->
+        <scene sceneID="m7X-7N-aUR">
+            <objects>
+                <viewController storyboardIdentifier="LoaderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YU4-J8-bhe" customClass="LoaderViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p0s-cG-BIv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activityIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="2Jo-3R-x2K">
+                                <rect key="frame" x="174" y="424" width="66" height="58"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2Jo-3R-x2K" firstAttribute="centerX" secondItem="3Pg-FZ-prf" secondAttribute="centerX" id="3Tz-6M-9rM"/>
+                            <constraint firstItem="2Jo-3R-x2K" firstAttribute="centerY" secondItem="3Pg-FZ-prf" secondAttribute="centerY" id="G3a-dc-jqM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3Pg-FZ-prf"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityImageView" destination="2Jo-3R-x2K" id="RLw-ut-dTa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VXw-ju-1ys" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="149" y="-558"/>
+        </scene>
         <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -35,7 +62,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ZjN-Yo-sZo" kind="show" id="VDT-7d-nin"/>
+                                    <action selector="entryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hZB-pH-wfI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -53,6 +80,7 @@
                     <navigationItem key="navigationItem" id="dZA-11-1xy"/>
                     <connections>
                         <outlet property="entryButton" destination="D9y-f3-fg3" id="CqC-xj-KqB"/>
+                        <segue destination="ZjN-Yo-sZo" kind="show" identifier="StartToChats" id="zKR-ES-lVc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -305,6 +333,7 @@
     </scenes>
     <resources>
         <image name="StartScreen" width="313" height="141"/>
+        <image name="activityIndicator" width="66" height="58"/>
         <image name="iconAdd" width="24" height="24"/>
         <image name="iconSend" width="22" height="20"/>
     </resources>
