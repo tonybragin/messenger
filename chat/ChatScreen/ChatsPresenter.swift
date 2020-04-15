@@ -25,7 +25,7 @@ class ChatsPresenter: ChatsPresenterProtocol {
     }
     
     func addButtonTouched() {
-        appendChatStub()
+        viewController.performSegue(withIdentifier: "ChatsToSingleChat", sender: nil)
     }
     
     func didSelectChat(at index: Int) {
