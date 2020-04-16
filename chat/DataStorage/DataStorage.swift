@@ -12,7 +12,7 @@ class DataStorage {
     
     static var shared = DataStorage()
     
-    var chats = Chats()
+    private(set) var chats = Chats()
     
     private init() {
         getChatsFromUserDefaults()

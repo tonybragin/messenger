@@ -16,7 +16,7 @@ protocol ChatDataItem {
 }
 
 class Chats: Codable {
-    var chats: [Chat] = []
+    private(set) var chats: [Chat] = []
     
     func messagesToPresent() -> [ChatDataItem] {
         var messages = [ChatDataItem]()
@@ -37,6 +37,10 @@ class Chats: Codable {
             chats.remove(at: index)
             chats.insert(chat, at: 0)
         }
+    }
+    
+    func remove(at index: Int) {
+        chats.remove(at: index)
     }
 }
 

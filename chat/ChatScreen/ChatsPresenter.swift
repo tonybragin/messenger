@@ -39,7 +39,7 @@ class ChatsPresenter: ChatsPresenterProtocol {
     }
     
     func deleteChat(at index: Int) {
-        chats.chats.remove(at: index)
+        chats.remove(at: index)
         DataStorage.shared.save()
     }
 }
