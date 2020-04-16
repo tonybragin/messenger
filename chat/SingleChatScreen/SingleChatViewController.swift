@@ -11,6 +11,7 @@ import UIKit
 protocol SingleChatViewControllerProtocol: UIViewController, KeyboardAppearingDelegate {
     var presenter: SingleChatPresenterProtocol! { get set }
     var chatData: [ChatDataItem] { get set }
+    var chatIndex: Int? { get set }
 }
 
 class SingleChatViewController: UIViewController, SingleChatViewControllerProtocol {
@@ -21,6 +22,7 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
     @IBOutlet weak var messageTextView: MessageTextView!
     
     var presenter: SingleChatPresenterProtocol!
+    var chatIndex: Int?
     var chatData: [ChatDataItem] = [] {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -37,11 +39,17 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
         configureCollectionView()
         configureTextView()
         presenter = SingleChatPresenter(viewController: self)
+        presenter.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         presenter.addKeyboardObservers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        presenter.viewWillDisappear()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -51,6 +59,7 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
 
     @IBAction func sendMessageButtonTouched(_ sender: UIButton) {
         presenter.sendMessageButtonTouched(text: messageTextView.text)
+        messageTextView.text = ""
     }
     
     private func configureCollectionView() {

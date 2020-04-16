@@ -26,6 +26,7 @@
 		EA59EB362445A60F007F7E83 /* SingleChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59EB352445A60F007F7E83 /* SingleChatPresenter.swift */; };
 		EA59EB382445AAB1007F7E83 /* KeyboardAppearingSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59EB372445AAB1007F7E83 /* KeyboardAppearingSupport.swift */; };
 		EAAA5AD5244707F00036809C /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAA5AD4244707F00036809C /* StartPresenter.swift */; };
+		EAB5E1ED244806A900C432D9 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB5E1EC244806A900C432D9 /* DataStorage.swift */; };
 		EAEBF2D92446E22D00467B20 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEBF2D82446E22D00467B20 /* UIFont.swift */; };
 		EAEBF2DB2446FB3000467B20 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEBF2DA2446FB3000467B20 /* UIStoryboard.swift */; };
 		EAEBF2DD2446FB4900467B20 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEBF2DC2446FB4900467B20 /* LoaderViewController.swift */; };
@@ -57,6 +58,7 @@
 		EA59EB352445A60F007F7E83 /* SingleChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleChatPresenter.swift; sourceTree = "<group>"; };
 		EA59EB372445AAB1007F7E83 /* KeyboardAppearingSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAppearingSupport.swift; sourceTree = "<group>"; };
 		EAAA5AD4244707F00036809C /* StartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
+		EAB5E1EC244806A900C432D9 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		EAEBF2D82446E22D00467B20 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		EAEBF2DA2446FB3000467B20 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		EAEBF2DC2446FB4900467B20 /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
@@ -97,15 +99,12 @@
 			isa = PBXGroup;
 			children = (
 				EA276E1E2444690000418132 /* AppDelegate.swift */,
-				EA276E4A2444958100418132 /* UIColor.swift */,
-				EAEBF2D82446E22D00467B20 /* UIFont.swift */,
-				EAEBF2DA2446FB3000467B20 /* UIStoryboard.swift */,
-				EA2C6CCF2445D16C00A909E2 /* Int.swift */,
-				EAF4381D2445752D004BB231 /* Chats.swift */,
-				EA59EB372445AAB1007F7E83 /* KeyboardAppearingSupport.swift */,
 				EA276E35244487A500418132 /* StartScreen */,
 				EA276E382444884300418132 /* ChatScreen */,
 				EA276E3D2444895200418132 /* SingleChatScreen */,
+				EAB5E1EB2448065800C432D9 /* DataStorage */,
+				EA59EB372445AAB1007F7E83 /* KeyboardAppearingSupport.swift */,
+				EAB5E1EA2448047900C432D9 /* Extensions */,
 				EA276E242444690000418132 /* Main.storyboard */,
 				EA276E2A2444690700418132 /* Assets.xcassets */,
 				EA276E2C2444690700418132 /* LaunchScreen.storyboard */,
@@ -148,6 +147,26 @@
 				EA276E4824448B9300418132 /* MessageTextView.swift */,
 			);
 			path = SingleChatScreen;
+			sourceTree = "<group>";
+		};
+		EAB5E1EA2448047900C432D9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EA276E4A2444958100418132 /* UIColor.swift */,
+				EAEBF2D82446E22D00467B20 /* UIFont.swift */,
+				EAEBF2DA2446FB3000467B20 /* UIStoryboard.swift */,
+				EA2C6CCF2445D16C00A909E2 /* Int.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EAB5E1EB2448065800C432D9 /* DataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				EAF4381D2445752D004BB231 /* Chats.swift */,
+				EAB5E1EC244806A900C432D9 /* DataStorage.swift */,
+			);
+			path = DataStorage;
 			sourceTree = "<group>";
 		};
 		EAF438182445706E004BB231 /* EmptyTableView */ = {
@@ -238,6 +257,7 @@
 				EA276E4924448B9300418132 /* MessageTextView.swift in Sources */,
 				EAEBF2DD2446FB4900467B20 /* LoaderViewController.swift in Sources */,
 				EA276E4124448AB000418132 /* MessageCollectionViewCell.swift in Sources */,
+				EAB5E1ED244806A900C432D9 /* DataStorage.swift in Sources */,
 				EAF4381E2445752D004BB231 /* Chats.swift in Sources */,
 				EA276E4524448B2D00418132 /* MessageLabel.swift in Sources */,
 				EA59EB342445A5E1007F7E83 /* MessageView.swift in Sources */,

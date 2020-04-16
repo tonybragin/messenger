@@ -11,6 +11,8 @@ import Foundation
 protocol SingleChatPresenterProtocol: KeyboardAppearingSupport {
     init(viewController: SingleChatViewControllerProtocol)
     
+    func viewDidLoad()
+    func viewWillDisappear()
     func sendMessageButtonTouched(text: String)
 }
 
@@ -18,21 +20,39 @@ class SingleChatPresenter: SingleChatPresenterProtocol {
     
     private unowned var viewController: SingleChatViewControllerProtocol
     weak var keyboardAppearingDelegate: KeyboardAppearingDelegate?
+    private var chats = DataStorage.shared.chats
+    private var chat: Chat!
     
     required init(viewController: SingleChatViewControllerProtocol) {
         self.viewController = viewController
         self.keyboardAppearingDelegate = viewController
     }
     
+    func viewDidLoad() {
+        if let index = viewController.chatIndex {
+            chat = chats.chats[index]
+        } else {
+            chat = Chat(messages: [Message]())
+        }
+        viewController.chatData = chat.messages
+    }
+    
+    func viewWillDisappear() {
+        if let index = viewController.chatIndex {
+            chats.update(chat: chat, at: index)
+        } else {
+            if !chat.messages.isEmpty {
+                chats.add(chat: chat)
+            }
+        }
+        DataStorage.shared.save()
+    }
+    
     func sendMessageButtonTouched(text: String) {
         let trimmedString = text.trimmingCharacters(in: .whitespacesAndNewlines)
         if !trimmedString.isEmpty {
-            appendChatStub(text: trimmedString)
+            chat.messages.append(Message(message: trimmedString))
+            viewController.chatData = chat.messages
         }
-    }
-    
-    private func appendChatStub(text: String) {
-        let message = Message(message: text)
-        viewController.chatData.append(message)
     }
 }

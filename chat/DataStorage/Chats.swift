@@ -15,15 +15,36 @@ protocol ChatDataItem {
     var displayedMessageTime: String { get }
 }
 
-struct Chats {
-    var charts: [Chat]
+class Chats: Codable {
+    var chats: [Chat] = []
+    
+    func messagesToPresent() -> [ChatDataItem] {
+        var messages = [ChatDataItem]()
+        for chat in chats {
+            if let lastMessage = chat.messages.last {
+                messages.append(lastMessage)
+            }
+        }
+        return messages
+    }
+    
+    func add(chat: Chat) {
+        chats.insert(chat, at: 0)
+    }
+    
+    func update(chat: Chat, at index: Int) {
+        if chats[index] != chat {
+            chats.remove(at: index)
+            chats.insert(chat, at: 0)
+        }
+    }
 }
 
-struct Chat {
+struct Chat: Codable, Equatable {
     var messages: [Message]
 }
 
-struct Message: ChatDataItem {
+struct Message: ChatDataItem, Codable, Equatable {
     var message: String
     var messageTime: Date
     var isOutcoming: Bool
