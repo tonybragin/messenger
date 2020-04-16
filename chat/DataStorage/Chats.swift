@@ -16,6 +16,9 @@ protocol ChatDataItem {
 }
 
 class Chats: Codable {
+    
+    // MARK: - Properties
+    
     private(set) var chats: [Chat] = []
     
     func messagesToPresent() -> [ChatDataItem] {
@@ -27,6 +30,8 @@ class Chats: Codable {
         }
         return messages
     }
+    
+    // MARK: - Public
     
     func add(chat: Chat) {
         chats.insert(chat, at: 0)
@@ -49,6 +54,9 @@ struct Chat: Codable, Equatable {
 }
 
 struct Message: ChatDataItem, Codable, Equatable {
+    
+    // MARK: - Properties
+    
     var message: String
     var messageTime: Date
     var isOutcoming: Bool
@@ -59,6 +67,8 @@ struct Message: ChatDataItem, Codable, Equatable {
 
         return "\(hours.printable):\(minutes.printable)"
     }
+    
+    // MARK: - Initialization 
     
     init(message: String) {
         self.message = message

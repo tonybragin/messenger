@@ -15,11 +15,8 @@ protocol SingleChatViewControllerProtocol: UIViewController, KeyboardAppearingDe
 }
 
 class SingleChatViewController: UIViewController, SingleChatViewControllerProtocol {
-
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var messageViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var messageViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var messageTextView: MessageTextView!
+    
+    // MARK: - Properties
     
     var presenter: SingleChatPresenterProtocol!
     var chatIndex: Int?
@@ -33,6 +30,15 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
             }
         }
     }
+    
+    // MARK: - Outlets
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var messageViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var messageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var messageTextView: MessageTextView!
+    
+    // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,13 +63,9 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
         presenter.removeKeyboardObservers()
     }
 
-    @IBAction func sendMessageButtonTouched(_ sender: UIButton) {
-        presenter.sendMessageButtonTouched(text: messageTextView.text)
-        messageTextView.text = ""
-    }
+    // MARK: - Configuration
     
     private func configureCollectionView() {
-        collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -74,6 +76,8 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
         messageTextView.showPlaceholder()
     }
     
+    // MARK: - Utility
+    
     private func scrollDown() {
         if !chatData.isEmpty {
             let indexPath = IndexPath(row: chatData.count - 1, section: 0)
@@ -82,7 +86,16 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
                                         animated: true)
         }
     }
+    
+    // MARK: - IBActions
+    
+    @IBAction func sendMessageButtonTouched(_ sender: UIButton) {
+        presenter.sendMessageButtonTouched(text: messageTextView.text)
+        messageTextView.text = ""
+    }
 }
+
+// MARK: - Working with UICollectionViewDelegateFlowLayout
 
 extension SingleChatViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
@@ -99,6 +112,8 @@ extension SingleChatViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: referenceWidth, height: referenceHeight)
     }
 }
+
+// MARK: - Working with UICollectionViewDataSource
 
 extension SingleChatViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
@@ -124,33 +139,7 @@ extension SingleChatViewController: UICollectionViewDataSource {
     
 }
 
-extension SingleChatViewController: UICollectionViewDelegate {
-    
-}
-
-extension SingleChatViewController: KeyboardAppearingDelegate {
-    
-    func keyboardWillShow(with rect: CGRect, duration: TimeInterval) {
-        var bottomOffset: CGFloat = 0
-        if #available(iOS 11.0, *) {
-            bottomOffset = view.safeAreaInsets.bottom
-        }
-        UIView.animate(withDuration: duration) { [weak self] in
-            self?.messageViewBottomConstraint.constant = rect.height - bottomOffset
-            self?.view.layoutIfNeeded()
-            self?.scrollDown()
-        }
-    }
-    
-    func keyboardWillHide(with rect: CGRect, duration: TimeInterval) {
-        UIView.animate(withDuration: duration) { [weak self] in
-            self?.messageViewBottomConstraint.constant = 0
-            self?.view.layoutIfNeeded()
-        }
-    }
-    
-    
-}
+// MARK: - Working with UITextViewDelegate
 
 extension SingleChatViewController: UITextViewDelegate {
     
@@ -180,6 +169,30 @@ extension SingleChatViewController: UITextViewDelegate {
         }
         UIView.animate(withDuration: 0.3) { [weak self] in
             self?.messageViewHeightConstraint.constant = newHeight
+            self?.view.layoutIfNeeded()
+        }
+    }
+}
+
+// MARK: - Working with KeyboardAppearingDelegate
+
+extension SingleChatViewController: KeyboardAppearingDelegate {
+    
+    func keyboardWillShow(with rect: CGRect, duration: TimeInterval) {
+        var bottomOffset: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            bottomOffset = view.safeAreaInsets.bottom
+        }
+        UIView.animate(withDuration: duration) { [weak self] in
+            self?.messageViewBottomConstraint.constant = rect.height - bottomOffset
+            self?.view.layoutIfNeeded()
+            self?.scrollDown()
+        }
+    }
+    
+    func keyboardWillHide(with rect: CGRect, duration: TimeInterval) {
+        UIView.animate(withDuration: duration) { [weak self] in
+            self?.messageViewBottomConstraint.constant = 0
             self?.view.layoutIfNeeded()
         }
     }

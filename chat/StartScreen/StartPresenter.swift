@@ -9,17 +9,22 @@
 import UIKit
 
 protocol StartPresenterProtocol {
-    init(viewController: StartViewController)
     func entryButtonTouched()
 }
 
 class StartPresenter: StartPresenterProtocol {
     
+    // MARK: - Properties
+    
     private unowned var viewController: StartViewController
     
-    required init(viewController: StartViewController) {
+    // MARK: - Initialization
+    
+    init(viewController: StartViewController) {
         self.viewController = viewController
     }
+    
+    // MARK: - Public
     
     func entryButtonTouched() {
         let loader: LoaderViewController = UIStoryboard.makeViewController(storyboardName: "Main")
@@ -28,6 +33,8 @@ class StartPresenter: StartPresenterProtocol {
         loader.modalPresentationStyle = .overCurrentContext
         viewController.present(loader, animated: true)
     }
+    
+    // MARK: - Utility
     
     private func presentChatsViewController() {
         viewController.performSegue(withIdentifier: "StartToChats", sender: nil)

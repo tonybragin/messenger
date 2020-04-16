@@ -9,10 +9,15 @@
 import UIKit
 
 class MessageLabel: UILabel {
+    
+    // MARK: - Properties
+    
     var topInset: CGFloat = 10
     var bottomInset: CGFloat = 10
     var leftInset: CGFloat = 10
     var rightInset: CGFloat = 10
+    
+    // MARK: - Layout
     
     override func drawText(in rect: CGRect) {
        let insets = UIEdgeInsets(top: topInset,

@@ -10,8 +10,19 @@ import UIKit
 
 class ChatTableViewCell: UITableViewCell {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var lastMessageLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    
+    // MARK: - Public
+    
+    func configure(with item: ChatDataItem) {
+        lastMessageLabel.text = item.message
+        timeLabel.text = item.displayedMessageTime
+    }
+    
+    // MARK: - Layout
     
     override func layoutSubviews() {
         DispatchQueue.main.async { [weak self] in
@@ -21,10 +32,4 @@ class ChatTableViewCell: UITableViewCell {
             self?.layer.borderWidth = 10
         }
     }
-    
-    func configure(with item: ChatDataItem) {
-        lastMessageLabel.text = item.message
-        timeLabel.text = item.displayedMessageTime
-    }
-
 }

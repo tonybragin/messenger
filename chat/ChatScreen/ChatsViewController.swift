@@ -14,8 +14,8 @@ protocol ChatsViewControllerProtocol: UIViewController {
 }
 
 class ChatsViewController: UIViewController, ChatsViewControllerProtocol {
-
-    @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Properties
     
     var presenter: ChatsPresenterProtocol!
     var chatsData: [ChatDataItem] = [] {
@@ -25,6 +25,12 @@ class ChatsViewController: UIViewController, ChatsViewControllerProtocol {
             }
         }
     }
+
+    // MARK: - Outlets
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +47,15 @@ class ChatsViewController: UIViewController, ChatsViewControllerProtocol {
         presenter.viewWillAppear()
     }
     
+    // MARK: - IBActions
+    
     @IBAction func addButtonTouched(_ sender: UIBarButtonItem) {
         presenter.addButtonTouched()
     }
     
 }
+
+// MARK: - Working with UITableViewDataSource
 
 extension ChatsViewController: UITableViewDataSource {
     
@@ -78,8 +88,9 @@ extension ChatsViewController: UITableViewDataSource {
     
 }
 
+// MARK: - Working with UITableViewDelegate
+
 extension ChatsViewController: UITableViewDelegate {
-    // TODO: сделать картинкой и соразмерно с ечейкой
     func tableView(_ tableView: UITableView,
                    commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
@@ -93,15 +104,3 @@ extension ChatsViewController: UITableViewDelegate {
         presenter.didSelectChat(at: indexPath.row)
     }
 }
-
-//extension ChatsViewController {
-//    struct ChatsDataItemStub: ChatDataItem {
-//        var isOutcoming: Bool
-//
-//        var messageTime: Date
-//
-//        var displayedMessageTime: String
-//
-//        var message: String
-//    }
-//}

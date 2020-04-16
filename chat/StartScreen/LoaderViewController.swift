@@ -9,10 +9,16 @@
 import UIKit
 
 class LoaderViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    var dismissCompletion: (() -> Void)?
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var activityImageView: UIImageView!
     
-    var dismissCompletion: (() -> Void)?
+    // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +29,8 @@ class LoaderViewController: UIViewController {
         setDismissTimer()
         setAnimation()
     }
+    
+    // MARK: - Utility
     
     private func setDismissTimer() {
         let timer = Timer(timeInterval: 1, repeats: false) { [weak self] _ in

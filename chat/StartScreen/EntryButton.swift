@@ -10,8 +10,19 @@ import UIKit
 
 class EntryButton: UIButton {
     
+    // MARK: - Properties
+    
     private var shadowLayer: CAShapeLayer!
+    
+    // MARK: - Public
+    
+    func animatedAppearance() {
+        move()
+        flash()
+    }
 
+    // MARK: - Layout
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -33,10 +44,7 @@ class EntryButton: UIButton {
         }
     }
     
-    func animatedAppearance() {
-        move()
-        flash()
-    }
+    // MARK: - Utility
     
     private func flash() {
         let flash = CABasicAnimation(keyPath: "opacity")

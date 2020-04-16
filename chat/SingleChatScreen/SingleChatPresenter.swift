@@ -9,8 +9,6 @@
 import Foundation
 
 protocol SingleChatPresenterProtocol: KeyboardAppearingSupport {
-    init(viewController: SingleChatViewControllerProtocol)
-    
     func viewDidLoad()
     func viewWillDisappear()
     func sendMessageButtonTouched(text: String)
@@ -18,15 +16,20 @@ protocol SingleChatPresenterProtocol: KeyboardAppearingSupport {
 
 class SingleChatPresenter: SingleChatPresenterProtocol {
     
+    // MARK: - Properties
     private unowned var viewController: SingleChatViewControllerProtocol
     weak var keyboardAppearingDelegate: KeyboardAppearingDelegate?
     private var chats = DataStorage.shared.chats
     private var chat: Chat!
     
-    required init(viewController: SingleChatViewControllerProtocol) {
+    // MARK: - Initialization
+    
+    init(viewController: SingleChatViewControllerProtocol) {
         self.viewController = viewController
         self.keyboardAppearingDelegate = viewController
     }
+    
+    // MARK: - Public
     
     func viewDidLoad() {
         if let index = viewController.chatIndex {

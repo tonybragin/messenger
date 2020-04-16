@@ -9,8 +9,6 @@
 import UIKit
 
 protocol ChatsPresenterProtocol {
-    init(viewController: ChatsViewControllerProtocol)
-    
     func viewWillAppear()
     func addButtonTouched()
     func didSelectChat(at index: Int)
@@ -19,12 +17,18 @@ protocol ChatsPresenterProtocol {
 
 class ChatsPresenter: ChatsPresenterProtocol {
     
+    // MARK: - Properties
+    
     private unowned var viewController: ChatsViewControllerProtocol
     private var chats = DataStorage.shared.chats
     
-    required init(viewController: ChatsViewControllerProtocol) {
+    // MARK: - Initialization
+    
+    init(viewController: ChatsViewControllerProtocol) {
         self.viewController = viewController
     }
+    
+    // MARK: - Public
     
     func viewWillAppear() {
         viewController.chatsData = chats.messagesToPresent()
@@ -43,6 +47,8 @@ class ChatsPresenter: ChatsPresenterProtocol {
         DataStorage.shared.save()
     }
 }
+
+// MARK: - Working with UIStoryboardSegue
 
 extension ChatsViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

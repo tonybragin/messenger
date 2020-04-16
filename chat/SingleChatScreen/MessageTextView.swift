@@ -10,11 +10,7 @@ import UIKit
 
 class MessageTextView: UITextView {
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.cornerRadius = 5
-        layer.masksToBounds = true
-    }
+    // MARK: - Public
     
     func showPlaceholder() {
         text = "Введите сообщение..."
@@ -26,5 +22,13 @@ class MessageTextView: UITextView {
         text = ""
         textColor = UIColor.black
         font = UIFont.messageTextViewTextFont
+    }
+    
+    // MARK: - Layout
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = 5
+        layer.masksToBounds = true
     }
 }

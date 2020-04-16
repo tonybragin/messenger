@@ -25,6 +25,9 @@
 		EA59EB342445A5E1007F7E83 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59EB332445A5E1007F7E83 /* MessageView.swift */; };
 		EA59EB362445A60F007F7E83 /* SingleChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59EB352445A60F007F7E83 /* SingleChatPresenter.swift */; };
 		EA59EB382445AAB1007F7E83 /* KeyboardAppearingSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59EB372445AAB1007F7E83 /* KeyboardAppearingSupport.swift */; };
+		EAA21C9624485F0D00DFF10B /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA21C9524485F0D00DFF10B /* DataHelper.swift */; };
+		EAA21C9824485F2500DFF10B /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA21C9724485F2500DFF10B /* UserDefaultsHelper.swift */; };
+		EAA21C9A24485F3C00DFF10B /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA21C9924485F3C00DFF10B /* CoreDataHelper.swift */; };
 		EAAA5AD5244707F00036809C /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAA5AD4244707F00036809C /* StartPresenter.swift */; };
 		EAB5E1ED244806A900C432D9 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB5E1EC244806A900C432D9 /* DataStorage.swift */; };
 		EAEBF2D92446E22D00467B20 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEBF2D82446E22D00467B20 /* UIFont.swift */; };
@@ -57,6 +60,9 @@
 		EA59EB332445A5E1007F7E83 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		EA59EB352445A60F007F7E83 /* SingleChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleChatPresenter.swift; sourceTree = "<group>"; };
 		EA59EB372445AAB1007F7E83 /* KeyboardAppearingSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAppearingSupport.swift; sourceTree = "<group>"; };
+		EAA21C9524485F0D00DFF10B /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
+		EAA21C9724485F2500DFF10B /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		EAA21C9924485F3C00DFF10B /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		EAAA5AD4244707F00036809C /* StartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
 		EAB5E1EC244806A900C432D9 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		EAEBF2D82446E22D00467B20 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
@@ -165,6 +171,9 @@
 			children = (
 				EAF4381D2445752D004BB231 /* Chats.swift */,
 				EAB5E1EC244806A900C432D9 /* DataStorage.swift */,
+				EAA21C9524485F0D00DFF10B /* DataHelper.swift */,
+				EAA21C9724485F2500DFF10B /* UserDefaultsHelper.swift */,
+				EAA21C9924485F3C00DFF10B /* CoreDataHelper.swift */,
 			);
 			path = DataStorage;
 			sourceTree = "<group>";
@@ -255,8 +264,10 @@
 				EA59EB362445A60F007F7E83 /* SingleChatPresenter.swift in Sources */,
 				EA2C6CD02445D16C00A909E2 /* Int.swift in Sources */,
 				EA276E4924448B9300418132 /* MessageTextView.swift in Sources */,
+				EAA21C9824485F2500DFF10B /* UserDefaultsHelper.swift in Sources */,
 				EAEBF2DD2446FB4900467B20 /* LoaderViewController.swift in Sources */,
 				EA276E4124448AB000418132 /* MessageCollectionViewCell.swift in Sources */,
+				EAA21C9A24485F3C00DFF10B /* CoreDataHelper.swift in Sources */,
 				EAB5E1ED244806A900C432D9 /* DataStorage.swift in Sources */,
 				EAF4381E2445752D004BB231 /* Chats.swift in Sources */,
 				EA276E4524448B2D00418132 /* MessageLabel.swift in Sources */,
@@ -271,6 +282,7 @@
 				EA276E3F2444897900418132 /* SingleChatViewController.swift in Sources */,
 				EAEBF2DB2446FB3000467B20 /* UIStoryboard.swift in Sources */,
 				EAF438202445827D004BB231 /* ChatsPresenter.swift in Sources */,
+				EAA21C9624485F0D00DFF10B /* DataHelper.swift in Sources */,
 				EA276E37244487E800418132 /* EntryButton.swift in Sources */,
 				EA276E1F2444690000418132 /* AppDelegate.swift in Sources */,
 			);
