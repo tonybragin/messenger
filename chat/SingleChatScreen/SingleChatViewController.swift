@@ -67,6 +67,7 @@ class SingleChatViewController: UIViewController, SingleChatViewControllerProtoc
     
     private func configureCollectionView() {
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     }
@@ -135,9 +136,14 @@ extension SingleChatViewController: UICollectionViewDataSource {
         cell.configure(with: chatData[indexPath.row])
         return cell
     }
-    
+}
+
+// MARK: - Working with UICollectionViewDelegate
+
+extension SingleChatViewController: UICollectionViewDelegate {
     
 }
+
 
 // MARK: - Working with UITextViewDelegate
 
